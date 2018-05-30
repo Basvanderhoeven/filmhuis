@@ -37,6 +37,10 @@ export class HomeComponent implements OnInit {
     }
     return this.list;
   }
+  redirectTo(route: string, data: any): void {
+    this.movieService.movieDetail = data;
+    this.router.navigateByUrl(`/${route}`);
+}
 }
 interface IMovie{
   poster_path: string;
