@@ -9,9 +9,8 @@ export class MovieService {
   constructor(private http : HttpClient) { }
   
   public movieDetail : IMovie;
-
-  getPopularMovies(){
-    return this.http.get<IMovies>("https://api.themoviedb.org/3/movie/popular?api_key=fd076ca560a3a7b957b9d7ce1d16394f&language=en-US&page=1");
+  getPopularMovies(page : number){
+    return this.http.get<IMovies>("https://api.themoviedb.org/3/movie/popular?api_key=fd076ca560a3a7b957b9d7ce1d16394f&language=en-US&page="+page);
   }
 }
 export interface Result {
@@ -37,12 +36,13 @@ export interface IMovies {
   total_results: number;
   total_pages: number;
 }
-interface IMovie{
+export interface IMovie{
   poster_path: string;
   adult: boolean;
   overview: string;
   release_date: string;
   genre_ids: number[];
+  genres: string[];
   id: number;
   original_title: string;
   original_language: string;

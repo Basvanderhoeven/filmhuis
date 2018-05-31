@@ -8,8 +8,16 @@
               <h1>
                 Popular Movies
               </h1>
-              <div class="moviePoster" *ngFor="let movie of list" (click)="redirectTo('movieDetail', movie)">
-                    <img src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}">
+              <div class="moviePosters">
+                <div class="moviePoster" *ngFor="let movie of list" (click)="redirectToDetail(movie)">
+                        <img src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}">
+                </div>
+              </div>
+              
+              <div class="paging">
+                    <div class="button" (click)="updatePaging('-')"><< Previous</div>
+                    <div class="button">{{ pageNr }}</div>
+                    <div class="button" (click)="updatePaging('+')">Next >></div>
               </div>
               
 

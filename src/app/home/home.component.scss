@@ -8,3 +8,22 @@
 .moviePoster:hover{
     cursor: pointer;
 }
+.moviePosters{
+}
+.paging{
+    margin-left: 300px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 600px;
+}
+.paging .button{
+    width: 200px;
+    height: 100px;
+    float: left;
+    line-height: 100px;
+    text-align: center;
+    background: #f44336;
+    color: white;
+    font-weight: bolder;
+}

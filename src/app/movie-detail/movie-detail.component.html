@@ -1,3 +1,32 @@
-<p>
-  movie-detail works!
-</p>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-10">
+          <h1 class="title">
+              {{ movie.title }}
+          </h1>
+          <div class="left">
+              <img class="poster" src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}">
+          </div>
+          <div class="right">
+            <div *ngIf="movie.genres">
+                <p class="genres" *ngFor="let genre of movie.genres">
+                    {{ genre }}
+                  </p>
+            </div>
+            
+            <p class="release">
+              Release: {{ movie.release_date }}
+            </p>
+            <p class="description">
+              {{ movie.overview }}
+            </p>
+          </div>
+          
+        </div>
+        <div class="col-sm-1">
+        </div>
+    </div>
+</div>
