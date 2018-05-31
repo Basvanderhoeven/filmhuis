@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieDetailPageComponent } from './movie-detail-page/movie-detail-page.component';
+import { SeriesComponent } from './series/series.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,7 +22,8 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     MovieDetailComponent,
-    MovieDetailPageComponent
+    MovieDetailPageComponent,
+    SeriesComponent
   ],
   imports: [
     BrowserModule,
