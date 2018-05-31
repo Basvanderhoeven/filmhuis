@@ -13,6 +13,7 @@ import { SeriesComponent } from './series/series.component';
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'moviedetail', component: MovieDetailComponent },
+  { path: 'seriedetail', component: SerieDetailComponent },
   { path: 'movies', component: HomeComponent},
   //{ path: '**', component: PageNotFoundComponent }
 ];

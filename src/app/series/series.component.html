@@ -1,3 +1,28 @@
-<p>
-  series works!
-</p>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-10">
+          
+          <h1>
+            Popular Series
+          </h1>
+          <div class="moviePosters">
+            <div class="moviePoster" *ngFor="let serie of serie_list" (click)="redirectToDetail(serie)">
+                    <img src="https://image.tmdb.org/t/p/original/{{serie.poster_path}}">
+            </div>
+          </div>
+          
+          <div class="paging">
+                <div class="button" (click)="updatePaging('-')"><< Previous</div>
+                <div class="button">{{ pageNr }}</div>
+                <div class="button" (click)="updatePaging('+')">Next >></div>
+          </div>
+          
+
+        </div>
+        <div class="col-sm-1">
+        </div>
+    </div>
+</div>
