@@ -8,7 +8,7 @@ export class SerieService {
 
   constructor(private http : HttpClient) { }
   
-  public serieDetail : ISeries;
+  public serieDetail : ISerie;
   getLatestSeries(page : number){
     return this.http.get<ISeries>("https://api.themoviedb.org/3/tv/popular?api_key=fd076ca560a3a7b957b9d7ce1d16394f&language=en-US&page="+page);
   }
@@ -40,5 +40,7 @@ export interface ISerie{
   name : string,
   overview : string,
   genres : number[],
+  first_air_date : string,
+  genres_str : string[],
   poster_path : string
 }

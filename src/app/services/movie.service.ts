@@ -12,6 +12,7 @@ export class MovieService {
   getPopularMovies(page : number){
     return this.http.get<IMovies>("https://api.themoviedb.org/3/movie/popular?api_key=fd076ca560a3a7b957b9d7ce1d16394f&language=en-US&page="+page);
   }
+  
 }
 export interface Result {
   poster_path: string;

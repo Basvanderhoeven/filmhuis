@@ -9,10 +9,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieDetailPageComponent } from './movie-detail-page/movie-detail-page.component';
 import { SeriesComponent } from './series/series.component';
+import { SerieDetailComponent } from './serie-detail/serie-detail.component';
+import { SerieService } from './services/serie.service';
+import { GenreService } from './services/genre.service';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'moviedetail', component: MovieDetailComponent },
+  { path: 'movies', component: HomeComponent },
+  { path: 'series', component: SeriesComponent },
   { path: 'seriedetail', component: SerieDetailComponent },
   { path: 'movies', component: HomeComponent},
   //{ path: '**', component: PageNotFoundComponent }
@@ -24,7 +29,8 @@ const appRoutes: Routes = [
     HomeComponent,
     MovieDetailComponent,
     MovieDetailPageComponent,
-    SeriesComponent
+    SeriesComponent,
+    SerieDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +39,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [MovieService],
+  providers: [MovieService, SerieService, GenreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
