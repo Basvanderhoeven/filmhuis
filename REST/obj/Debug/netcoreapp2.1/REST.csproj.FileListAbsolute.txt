@@ -1,0 +1,14 @@
+c:\Users\Bassie\Documents\School\CA\Eindproject\REST\bin\Debug\netcoreapp2.1\REST.deps.json
+c:\Users\Bassie\Documents\School\CA\Eindproject\REST\bin\Debug\netcoreapp2.1\REST.runtimeconfig.json
+c:\Users\Bassie\Documents\School\CA\Eindproject\REST\bin\Debug\netcoreapp2.1\REST.runtimeconfig.dev.json
+c:\Users\Bassie\Documents\School\CA\Eindproject\REST\bin\Debug\netcoreapp2.1\REST.dll
+c:\Users\Bassie\Documents\School\CA\Eindproject\REST\bin\Debug\netcoreapp2.1\REST.pdb
+c:\Users\Bassie\Documents\School\CA\Eindproject\REST\obj\Debug\netcoreapp2.1\REST.csprojAssemblyReference.cache
+c:\Users\Bassie\Documents\School\CA\Eindproject\REST\obj\Debug\netcoreapp2.1\REST.csproj.CoreCompileInputs.cache
+c:\Users\Bassie\Documents\School\CA\Eindproject\REST\obj\Debug\netcoreapp2.1\REST.RazorAssemblyInfo.cache
+c:\Users\Bassie\Documents\School\CA\Eindproject\REST\obj\Debug\netcoreapp2.1\REST.RazorAssemblyInfo.cs
+c:\Users\Bassie\Documents\School\CA\Eindproject\REST\obj\Debug\netcoreapp2.1\REST.AssemblyInfoInputs.cache
+c:\Users\Bassie\Documents\School\CA\Eindproject\REST\obj\Debug\netcoreapp2.1\REST.AssemblyInfo.cs
+c:\Users\Bassie\Documents\School\CA\Eindproject\REST\obj\Debug\netcoreapp2.1\REST.RazorTargetAssemblyInfo.cache
+c:\Users\Bassie\Documents\School\CA\Eindproject\REST\obj\Debug\netcoreapp2.1\REST.dll
+c:\Users\Bassie\Documents\School\CA\Eindproject\REST\obj\Debug\netcoreapp2.1\REST.pdb
