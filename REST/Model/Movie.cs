@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Model
 {
@@ -6,7 +8,8 @@ namespace Model
         public int Id { get; set; }
         public string PosterPath { get; set; }
         public string Title { get; set; }
-        public int Overview { get; set; }
-        public string[] Genre {get; set;}
+        public string Overview { get; set; }
+        [JsonIgnore]
+        public ICollection<Genre>[] Genre {get; set;}
     }
 }
