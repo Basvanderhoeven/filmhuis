@@ -13,5 +13,9 @@ export class SerieDetailComponent implements OnInit {
   ngOnInit() {
     this.serie = this.serieService.serieDetail;
   }
+  addToList(){
+    console.log("code bereikt");
+    this.serieService.putSerie(this.serie);
+  }
 
 }

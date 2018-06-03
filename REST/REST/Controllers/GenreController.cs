@@ -51,10 +51,10 @@ namespace REST.Controllers
         [HttpPut]
         public IActionResult UpdateGenre([FromBody] Genre newGenre)
         {
-            var orgGenre = _context.Movies.Find(newGenre.Id);
+            var orgGenre = _context.Genres.Find(newGenre.Id);
             if (newGenre == null)
                 return NotFound();
-            orgGenre.Title = newGenre.Name;
+            orgGenre.Name = newGenre.Name;
             _context.SaveChanges();
             return Ok(orgGenre);
         }

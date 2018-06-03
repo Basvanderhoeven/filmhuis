@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 
@@ -11,6 +12,19 @@ export class SerieService {
   public serieDetail : ISerie;
   getLatestSeries(page : number){
     return this.http.get<ISeries>("https://api.themoviedb.org/3/tv/popular?api_key=fd076ca560a3a7b957b9d7ce1d16394f&language=en-US&page="+page);
+  }
+  putSerie(serie : ISerie){
+    var APIserie : ISerieAPI = {
+      Poster_path : serie.poster_path,
+      Name : serie.name,
+      Overview : serie.overview
+    }
+    //const data = JSON.stringify(APIserie);
+    let headers = new HttpHeaders()
+    .set('Content-Type', 'application/json')
+    .set('Access-Control-Allow-Origin', '*')
+    .set('Access-Control-Allow-Methods', 'GET, PUT, POST');
+    return this.http.post("http://localhost:61513/api/series", APIserie, { headers : headers }).subscribe(data => {console.log(data);});
   }
 }
 export interface Result {
@@ -43,4 +57,9 @@ export interface ISerie{
   first_air_date : string,
   genres_str : string[],
   poster_path : string
+}
+export interface ISerieAPI{
+  Poster_path : string,
+  Name : string,
+  Overview : string
 }

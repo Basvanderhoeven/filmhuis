@@ -12,6 +12,7 @@ import { SeriesComponent } from './series/series.component';
 import { SerieDetailComponent } from './serie-detail/serie-detail.component';
 import { SerieService } from './services/serie.service';
 import { GenreService } from './services/genre.service';
+import { WatchlistComponent } from './watchlist/watchlist.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
     MovieDetailComponent,
     MovieDetailPageComponent,
     SeriesComponent,
-    SerieDetailComponent
+    SerieDetailComponent,
+    WatchlistComponent
   ],
   imports: [
     BrowserModule,

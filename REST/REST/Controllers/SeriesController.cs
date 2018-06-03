@@ -57,6 +57,7 @@ namespace REST.Controllers
         [HttpPut]
         public IActionResult UpdateSerie([FromBody] Serie newSerie)
         {
+            //return Ok(newSerie);
             var orgSerie = _context.Series.Find(newSerie.Id);
             if (newSerie == null)
                 return NotFound();
@@ -68,6 +69,9 @@ namespace REST.Controllers
         [HttpPost]
         public IActionResult CreateSerie([FromBody] Serie newSerie)
         {
+            var duplicate = _context.Series.Find(newSerie.Id);
+            if (duplicate != null)
+                return NotFound();
             _context.Series.Add(newSerie);
             _context.SaveChanges();
             return Created("", newSerie);

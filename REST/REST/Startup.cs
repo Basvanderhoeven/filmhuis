@@ -45,6 +45,7 @@ namespace REST
                 app.UseDeveloperExceptionPage();
             }
             app.UseMvc();
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             DBIntitializer.Initialize(libContext);
         }
     }

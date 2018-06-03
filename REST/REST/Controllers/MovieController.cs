@@ -22,7 +22,7 @@ namespace REST.Controllers
         }
         
         [HttpGet]         // api/v1/movie
-        public List<Movie> GetAllMovies(string titel, string sort, string dir = "asc", int? page, int length = 2)
+        public List<Movie> GetAllMovies(string titel, string sort, int? page, string dir = "asc", int length = 2)
         {
             IQueryable<Movie> query = _context.Movies;
             if (!string.IsNullOrWhiteSpace(titel))
@@ -85,7 +85,10 @@ namespace REST.Controllers
         [HttpPost]
         public IActionResult CreateMovie([FromBody] Movie newMovie)
         {
-                _context.Movies.Add(newMovie);
+            var duplicate = _context.Movies.Find(newMovie.Title);
+            if (duplicate != null)
+                return NotFound();
+            _context.Movies.Add(newMovie);
                 _context.SaveChanges();
                 return Created("", newMovie);
         }
