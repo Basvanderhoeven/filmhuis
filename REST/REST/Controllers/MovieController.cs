@@ -22,9 +22,29 @@ namespace REST.Controllers
         }
         
         [HttpGet]         // api/v1/movie
-        public List<Movie> GetAllMovies()
+        public List<Movie> GetAllMovies(string titel, string sort, string dir = "asc", int? page, int length = 2)
         {
-            return _context.Movies.ToList();
+            IQueryable<Movie> query = _context.Movies;
+            if (!string.IsNullOrWhiteSpace(titel))
+                query = query.Where(d => d.Title == titel);
+
+            if(!string.IsNullOrWhiteSpace(sort))
+            {
+                switch(sort)
+                {
+                    case "title":
+                        if (dir == "asc")
+                            query = query.OrderBy(d => d.Title);
+                        else if (dir == "desc")
+                            query = query.OrderByDescending(d => d.Title);
+                        break;
+                }
+            }
+
+            if (page.HasValue)
+                query = query.Skip(page.Value * length);
+            query = query.Take(length);
+            return query.ToList();
         }
         [Route("{id}")]   // api/v1/movie/2
         [HttpGet]
