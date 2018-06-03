@@ -54,7 +54,17 @@ namespace REST.Controllers
             //Standaard response 204 bij een gelukte delete
             return NoContent();
         }
-
+        [HttpPut]
+        public IActionResult UpdateSerie([FromBody] Serie newSerie)
+        {
+            var orgSerie = _context.Series.Find(newSerie.Id);
+            if (newSerie == null)
+                return NotFound();
+            orgSerie.Name = newSerie.Name;
+            orgSerie.Overview = newSerie.Overview;
+            _context.SaveChanges();
+            return Ok(orgSerie);
+        }
         [HttpPost]
         public IActionResult CreateSerie([FromBody] Serie newSerie)
         {

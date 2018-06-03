@@ -48,7 +48,16 @@ namespace REST.Controllers
             //Standaard response 204 bij een gelukte delete
             return NoContent();
         }
-
+        [HttpPut]
+        public IActionResult UpdateGenre([FromBody] Genre newGenre)
+        {
+            var orgGenre = _context.Movies.Find(newGenre.Id);
+            if (newGenre == null)
+                return NotFound();
+            orgGenre.Title = newGenre.Name;
+            _context.SaveChanges();
+            return Ok(orgGenre);
+        }
         [HttpPost]
         public IActionResult CreateGenre([FromBody] Genre newGenre)
         {

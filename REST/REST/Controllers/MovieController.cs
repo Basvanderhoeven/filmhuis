@@ -71,7 +71,17 @@ namespace REST.Controllers
             //Standaard response 204 bij een gelukte delete
             return NoContent();
         }
-    
+        [HttpPut]
+        public IActionResult UpdateMovie([FromBody] Movie newMovie)
+        {
+            var orgMovie = _context.Movies.Find(newMovie.Id);
+            if (orgMovie == null)
+                return NotFound();
+            orgMovie.Title = newMovie.Title;
+            orgMovie.Overview = newMovie.Overview;
+            _context.SaveChanges();
+            return Ok(orgMovie);
+        }
         [HttpPost]
         public IActionResult CreateMovie([FromBody] Movie newMovie)
         {
