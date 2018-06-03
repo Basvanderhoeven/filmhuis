@@ -7,41 +7,57 @@ using Model;
 
 namespace REST.Controllers
 {
-    [Route("api/movie")]
+    [Route("api/movies")]
     public class MovieController : ControllerBase
     {
-    private static List<Movie> list = new List<Movie>();
-    public MovieController()
-    {
+        private static List<Movie> list = new List<Movie>();
+        private LibraryContext _context;
+        public MovieController(LibraryContext context)
+        {
+                _context = context;
+        }
+        static MovieController()
+        {
         
-    }
-    static MovieController()
-    {
+        }
         
-    }
-    [Route("{id}")]   // api/v1/movie/2
-    [HttpGet]
-    public IActionResult GetMovie(int id)
-    {
-        if (list.Exists(d => d.Id == id))
-            return NotFound();
+        [HttpGet]         // api/v1/movie
+        public List<Movie> GetAllMovies()
+        {
+            return _context.Movies.ToList();
+        }
+        [Route("{id}")]   // api/v1/movie/2
+        [HttpGet]
+        public IActionResult GetMovie(int id)
+        {
+            var movie = _context.Series.Find(id);
 
-        return Ok(list.FirstOrDefault(d => d.Id == id));
-    }
-    [HttpGet]         // api/v1/movie
-    public List<Movie> GetAllMovies()
-    {
-        return list;
-    }
-    [Route("{id}")]
-    [HttpDelete]
-    public IActionResult DeleteMovie(int id)
-    {
-        if (list.Exists(d => d.Id == id))
-            return NotFound();
-        else list.Remove(list.FirstOrDefault(d => d.Id == id));
-        //book verwijderen ..
-        return NoContent();
-    }
+            if (movie == null)
+                return NotFound();
+
+            return Ok(movie);
+        }
+        [Route("{id}")]
+        [HttpDelete]
+        public IActionResult DeleteMovie(int id)
+        {
+            var movie = _context.Series.Find(id);
+            if (movie == null)
+                return NotFound();
+
+            //book verwijderen ..
+            _context.Series.Remove(movie);
+            _context.SaveChanges();
+            //Standaard response 204 bij een gelukte delete
+            return NoContent();
+        }
+    
+        [HttpPost]
+        public IActionResult CreateMovie([FromBody] Movie newMovie)
+        {
+                _context.Movies.Add(newMovie);
+                _context.SaveChanges();
+                return Created("", newMovie);
+        }
     }
 }

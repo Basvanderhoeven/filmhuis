@@ -9,3 +9,14 @@ c:\users\bassie\source\repos\REST\REST\bin\Debug\netcoreapp2.0\REST.dll
 c:\users\bassie\source\repos\REST\REST\bin\Debug\netcoreapp2.0\REST.pdb
 c:\users\bassie\source\repos\REST\REST\obj\Debug\netcoreapp2.0\REST.dll
 c:\users\bassie\source\repos\REST\REST\obj\Debug\netcoreapp2.0\REST.pdb
+C:\Users\Bassie\Documents\School\CA\Eindproject\REST\REST\bin\Debug\netcoreapp2.0\REST.deps.json
+C:\Users\Bassie\Documents\School\CA\Eindproject\REST\REST\bin\Debug\netcoreapp2.0\REST.runtimeconfig.json
+C:\Users\Bassie\Documents\School\CA\Eindproject\REST\REST\bin\Debug\netcoreapp2.0\REST.runtimeconfig.dev.json
+C:\Users\Bassie\Documents\School\CA\Eindproject\REST\REST\bin\Debug\netcoreapp2.0\REST.dll
+C:\Users\Bassie\Documents\School\CA\Eindproject\REST\REST\bin\Debug\netcoreapp2.0\REST.pdb
+C:\Users\Bassie\Documents\School\CA\Eindproject\REST\REST\obj\Debug\netcoreapp2.0\REST.csprojAssemblyReference.cache
+C:\Users\Bassie\Documents\School\CA\Eindproject\REST\REST\obj\Debug\netcoreapp2.0\REST.csproj.CoreCompileInputs.cache
+C:\Users\Bassie\Documents\School\CA\Eindproject\REST\REST\obj\Debug\netcoreapp2.0\REST.AssemblyInfoInputs.cache
+C:\Users\Bassie\Documents\School\CA\Eindproject\REST\REST\obj\Debug\netcoreapp2.0\REST.AssemblyInfo.cs
+C:\Users\Bassie\Documents\School\CA\Eindproject\REST\REST\obj\Debug\netcoreapp2.0\REST.dll
+C:\Users\Bassie\Documents\School\CA\Eindproject\REST\REST\obj\Debug\netcoreapp2.0\REST.pdb
