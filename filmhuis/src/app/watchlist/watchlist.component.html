@@ -4,27 +4,31 @@
         <div class="col-sm-1">
         </div>
         <div class="col-sm-10">
-          
           <h1>
-            Popular Movies
+            Movies to watch
           </h1>
+          <p>Wanneer u een item verwijderd is dit niet direct zichtbaar, refresh hiervoor de pagina</p>
           <div class="moviePosters">
-            <div class="moviePoster" *ngFor="let movie of list" (click)="redirectToDetail(movie)">
-                    <img src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}">
+            <div class="moviePoster" *ngFor="let movie of movie_list" (click)="deleteMovie(movie.id);">
+              <div class="posterItem">
+                  <img src="https://image.tmdb.org/t/p/original/{{movie.posterPath}}">
+                  <img class="deletePoster" src="assets/delete.png">
+              </div>
+                    
             </div>
           </div>
           <h1>
-            Popular Series
+            Series to watch
           </h1>
+          <p>Wanneer u een item verwijderd is dit niet direct zichtbaar, refresh hiervoor de pagina</p>
           <div class="moviePosters">
-            <div class="moviePoster" *ngFor="let serie of list" (click)="redirectToDetail(serie)">
-                    <img src="https://image.tmdb.org/t/p/original/{{serie.poster_path}}">
-            </div>
-          </div>
-          <div class="paging">
-                <div class="button" (click)="updatePaging('-')"><< Previous</div>
-                <div class="button">{{ pageNr }}</div>
-                <div class="button" (click)="updatePaging('+')">Next >></div>
+              <div class="moviePoster" *ngFor="let serie of serie_list" (click)="deleteSerie(serie.id)">
+                  <div class="posterItem">
+                      <img src="https://image.tmdb.org/t/p/original/{{serie.posterPath}}">
+                      <img class="deletePoster" src="assets/delete.png">
+                  </div>
+              </div>
+            
           </div>
           
 

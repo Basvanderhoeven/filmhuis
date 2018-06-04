@@ -22,10 +22,11 @@ namespace REST.Controllers
         [HttpGet]         // api/series?title=${serieTitel}
         public List<Serie> GetAllSeries(string title)
         {
+            //return _context.Series.ToList();
             IQueryable<Serie> query = _context.Series;
             if (!string.IsNullOrWhiteSpace(title))
                 query = query.Where(d => d.Name == title);
-
+            
             return query.ToList();
         }
         [Route("{id}")]   // api/series/2
@@ -69,12 +70,22 @@ namespace REST.Controllers
         [HttpPost]
         public IActionResult CreateSerie([FromBody] Serie newSerie)
         {
-            var duplicate = _context.Series.Find(newSerie.Id);
-            if (duplicate != null)
-                return NotFound();
-            _context.Series.Add(newSerie);
-            _context.SaveChanges();
-            return Created("", newSerie);
+            IQueryable<Serie> query = _context.Series;
+            query = query.Where(d => d.OrgId == newSerie.OrgId);
+            var result = query.ToList();
+            if (!result.Any())
+            {
+                //return query.ToList();
+                var duplicate = _context.Series.Find(newSerie.Id);
+                if (duplicate != null)
+                    return NotFound();
+                _context.Series.Add(newSerie);
+                _context.SaveChanges();
+                return Created("", newSerie);
+                
+            }
+            return NoContent();
+            
         }
     }
 }

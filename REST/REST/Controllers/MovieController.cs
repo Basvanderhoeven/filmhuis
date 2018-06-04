@@ -22,7 +22,7 @@ namespace REST.Controllers
         }
         
         [HttpGet]         // api/v1/movie
-        public List<Movie> GetAllMovies(string titel, string sort, int? page, string dir = "asc", int length = 2)
+        public List<Movie> GetAllMovies(string titel, string sort, int? page, string dir = "asc", int length = 20)
         {
             IQueryable<Movie> query = _context.Movies;
             if (!string.IsNullOrWhiteSpace(titel))
@@ -50,7 +50,7 @@ namespace REST.Controllers
         [HttpGet]
         public IActionResult GetMovie(int id)
         {
-            var movie = _context.Series.Find(id);
+            var movie = _context.Movies.Find(id);
 
             if (movie == null)
                 return NotFound();
@@ -61,12 +61,12 @@ namespace REST.Controllers
         [HttpDelete]
         public IActionResult DeleteMovie(int id)
         {
-            var movie = _context.Series.Find(id);
+            var movie = _context.Movies.Find(id);
             if (movie == null)
                 return NotFound();
 
             //book verwijderen ..
-            _context.Series.Remove(movie);
+            _context.Movies.Remove(movie);
             _context.SaveChanges();
             //Standaard response 204 bij een gelukte delete
             return NoContent();
@@ -85,12 +85,20 @@ namespace REST.Controllers
         [HttpPost]
         public IActionResult CreateMovie([FromBody] Movie newMovie)
         {
-            var duplicate = _context.Movies.Find(newMovie.Title);
-            if (duplicate != null)
-                return NotFound();
-            _context.Movies.Add(newMovie);
+            IQueryable<Movie> query = _context.Movies;
+            query = query.Where(d => d.OrgId == newMovie.OrgId);
+            var result = query.ToList();
+            if (!result.Any())
+            {
+                //return query.ToList();
+                var duplicate = _context.Movies.Find(newMovie.Id);
+                if (duplicate != null)
+                    return NotFound();
+                _context.Movies.Add(newMovie);
                 _context.SaveChanges();
                 return Created("", newMovie);
+            }
+            return NotFound();
         }
     }
 }

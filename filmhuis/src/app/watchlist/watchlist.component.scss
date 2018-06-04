@@ -1,0 +1,22 @@
+.moviePoster img{
+    width: 200px;
+}
+.moviePoster{
+    float: left;
+    margin: 5px;
+}
+.moviePoster:hover{
+    cursor: pointer;
+}
+.moviePosters{
+    width: 100%;
+    float: left;
+    
+}
+.posterItem{
+    background: #CCC;
+}
+.deletePoster{
+    margin-left: 20px;
+    opacity: 0.5;
+}

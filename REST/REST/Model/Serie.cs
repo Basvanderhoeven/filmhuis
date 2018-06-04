@@ -18,6 +18,7 @@ namespace Model
         public string PosterPath { get; set; }
         public string Name { get; set; }
         public string Overview { get; set; }
+        public int OrgId { get; set; }
         //[JsonIgnore]
         //public ICollection<Genre>[] Genre {get; set;}
     }

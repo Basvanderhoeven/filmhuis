@@ -21,6 +21,7 @@ const appRoutes: Routes = [
   { path: 'series', component: SeriesComponent },
   { path: 'seriedetail', component: SerieDetailComponent },
   { path: 'movies', component: HomeComponent},
+  { path: 'watchlist', component: WatchlistComponent}
   //{ path: '**', component: PageNotFoundComponent }
 ];
 

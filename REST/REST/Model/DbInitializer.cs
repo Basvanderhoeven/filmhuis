@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Model
 {
-    public class DBIntitializer
+    public class DBInitializer
     {
         public static void Initialize(LibraryContext context)
         {
@@ -80,20 +80,24 @@ namespace Model
                 context.Genres.Add(western);
                 var deadpool2 = new Movie()
                 {
-                    PosterPath = "/to0spRl1CMDvyUbOnbb4fTk3VAd.jpg",
-                    Title = "Deadpool 2",
+                    OrgId = 383498,
                     Overview = "Wisecracking mercenary Deadpool battles the evil and powerful Cable and other bad guys to save a boy's life.",
                     //Genre = NotMappedAttribute()
                     /*Genre =  new ICollection<Genre> {action, comedy, sciencefiction}, */
+                    PosterPath = "/to0spRl1CMDvyUbOnbb4fTk3VAd.jpg",
+                    Title = "Deadpool 2",
+                    
+
                 };
                 context.Movies.Add(deadpool2);
 
                 var infinitywar = new Movie()
                 {
-                    PosterPath = "/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
-                    Title = "Avengers: Infinity War",
+                    OrgId = 299536,
                     Overview = "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.",
                     /* Genre = [adventure, sciencefiction, fantasy, action], */
+                    PosterPath = "/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+                    Title = "Avengers: Infinity War"
                 };
                 context.Movies.Add(infinitywar);
                 
@@ -111,6 +115,7 @@ namespace Model
                     Name = "The Big Bang Theory",
                     Overview = "The Big Bang Theory is centered on five characters living in Pasadena, California: roommates Leonard Hofstadter and Sheldon Cooper; Penny, a waitress and aspiring actress who lives across the hall; and Leonard and Sheldon's equally geeky and socially awkward friends and co-workers, mechanical engineer Howard Wolowitz and astrophysicist Raj Koothrappali. The geekiness and intellect of the four guys is contrasted for comic effect with Penny's social skills and common sense.",
                     /* Genre = [comedy] */
+                    OrgId = 1418
                 };
                 //Add the book to the collection of books
                 context.Series.Add(bigbang);
@@ -120,6 +125,7 @@ namespace Model
                     Name = "Westworld",
                     Overview = "A dark odyssey about the dawn of artificial consciousness and the evolution of sin. Set at the intersection of the near future and the reimagined past, it explores a world in which every human appetite, no matter how noble or depraved, can be indulged.",
                     /* Genre = [sciencefiction, western] */
+                    OrgId = 63247
                 };
                 //Add the book to the collection of books
                 context.Series.Add(westworld);

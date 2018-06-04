@@ -16,5 +16,9 @@ export class MovieDetailComponent implements OnInit {
     console.log("detail");
     console.log(this.movie);
   }
-
+  addToList(){
+    console.log("addToList() in movie-detail component");
+    console.log(this.movie);
+    this.movieService.putMovie(this.movie);
+  }
 }

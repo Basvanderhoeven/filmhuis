@@ -13,11 +13,29 @@ export class SerieService {
   getLatestSeries(page : number){
     return this.http.get<ISeries>("https://api.themoviedb.org/3/tv/popular?api_key=fd076ca560a3a7b957b9d7ce1d16394f&language=en-US&page="+page);
   }
+  getSeriesFromREST(){
+    let headers = new HttpHeaders()
+    .set('Content-Type', 'application/json')
+    .set('Access-Control-Allow-Origin', 'http://localhost:61513/api/series')
+    .set('Access-Control-Allow-Methods', 'GET, PUT, POST');
+    return this.http.get<ISerieAPI>("http://localhost:61513/api/series", { headers : headers});
+  }
+  // getSeriesFromREST(){
+  //   console.log("getseriesfromrest");
+  //   let headers = new HttpHeaders()
+  //   .set('Content-Type', 'application/json')
+  //   .set('Access-Control-Allow-Origin', '*')
+  //   .set('Access-Control-Allow-Methods', 'GET, PUT, POST');
+  //   return this.http.get<ISerieAPI>("http://localhost:61513/api/series", { headers : headers}).subscribe(data => {console.log(data);});
+  // }
   putSerie(serie : ISerie){
+    console.log("putSerie");
+    console.log(serie);
     var APIserie : ISerieAPI = {
-      Poster_path : serie.poster_path,
-      Name : serie.name,
-      Overview : serie.overview
+      posterPath : serie.poster_path,
+      name : serie.name,
+      overview : serie.overview,
+      orgId : serie.id
     }
     //const data = JSON.stringify(APIserie);
     let headers = new HttpHeaders()
@@ -25,6 +43,10 @@ export class SerieService {
     .set('Access-Control-Allow-Origin', '*')
     .set('Access-Control-Allow-Methods', 'GET, PUT, POST');
     return this.http.post("http://localhost:61513/api/series", APIserie, { headers : headers }).subscribe(data => {console.log(data);});
+  }
+  deleteSerie(serie_id : number){
+    console.log("deleteSerie");
+    return this.http.delete("http://localhost:61513/api/series/"+serie_id).subscribe();
   }
 }
 export interface Result {
@@ -59,7 +81,8 @@ export interface ISerie{
   poster_path : string
 }
 export interface ISerieAPI{
-  Poster_path : string,
-  Name : string,
-  Overview : string
+  posterPath : string,
+  name : string,
+  overview : string
+  orgId : number
 }
